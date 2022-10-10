@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{master.html}"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>GRUPAL | DAE II</title>
+
+    <style>
+
+    </style>
+</head>
+<body>
+<div layout:fragment="content">
+    <header>
+        <!-- Intro settings -->
+        <style>
+    /* Default height for small devices */
+    #intro-example {
+      height: 400px;
+    }
+
+    /* Height for devices larger than 992px */
+    @media (min-width: 992px) {
+      #intro-example {
+        height: 600px;
+      }
+    }
+  </style>
+
+
+        <!-- Background image -->
+        <div id="intro-example" class="p-5 text-center bg-image d-flex justify-content-center align-items-center"
+             style="background: url('https://img.freepik.com/fotos-premium/majestuosa-vista-laguna-69-huaraz-peru_418500-261.jpg?w=2000') center no-repeat; background-size: cover;">
+            <div class="mask p-4" style="background-color: rgba(0, 0, 0, 0.7);">
+                <div class="d-flex justify-content-center align-items-center h-100">
+                    <div class="text-white">
+                        <h1 class="mb-3">Desarrollo de Aplicaciones Empresariales II</h1>
+                        <h5 class="mb-4">
+                            Proyecto | Administración de Productos
+                        </h5>
+                        <a class="btn btn-outline-light btn-lg m-2" href="/admin/productos"
+                           role="button">Ver Todos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Background image -->
+    </header>
+</div>
+
+</body>
+</html>

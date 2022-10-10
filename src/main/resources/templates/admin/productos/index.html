@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{master.html}"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Mantenimiento de Productos</title>
+</head>
+<body>
+
+<div layout:fragment="content">
+
+    <div class="container">
+
+
+        <div style="margin-bottom:10%">
+            <h3 style="text-align:center">Administración de Productos</h3>
+        </div>
+
+
+
+
+            <div style="margin-left:32%">
+                <table class="table table-hover table-responsive" style="text-align:center">
+                    <thead>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                    <th>Categoria</th>
+                    <th>Actions</th>
+                    </thead>
+                    <tbody>
+                    <tr th:each="producto : ${productos}" th:object="${producto}">
+                        <td th:text="*{nombre}"></td>
+                        <td th:text="*{precio}"></td>
+                        <td th:text="*{stock}"></td>
+                        <td th:text="*{categoria}"></td>
+                        <td class="text-end">
+                            <div class="btn-group btn-group-sm">
+                                <a th:href="@{/admin/productos/editar/{id} (id = *{id}) }" class="btn btn-primary" > <i class="fa fa-edit"></i></a>
+                                <a href="#" class="btn btn-danger" onclick="eliminar(this)"><i class="fa fa-trash"></i></a>
+
+                                <form th:action="@{/admin/productos/eliminar/{id} (id = *{id} ) }" method="post" class="d-none"></form>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+    </div>
+
+    <div style="margin-top:5%">
+        <div class="text-end mt-2 mb-2" style="text-align:center">
+            <a href="/admin/productos/nuevo" class="btn btn-success"> <i class="fa fa-add"></i> Agregar</a>
+        </div>
+    </div>
+
+</div>
+<div layout:fragment="scripts">
+    <script>
+        function eliminar(e){
+            var rpta = confirm("¿Estás sefuro de eliminar el producto?")
+
+            if(rpta){
+                console.log('e', e.nextElementSibling.submit() );
+            }
+        }
+    </script>
+</div>
+</body>
+</html>
